@@ -1,0 +1,21 @@
+{
+  "name": "bpmn-jsonator",
+  "version": "0.0.1",
+  "description": "shows all direct child classes of a given BPMN element",
+  "main": "bpmn-jsonator.js",
+  "dependencies": {
+    "jsonfile": "^2.2.2",
+    "lodash.filter": "^3.1.1",
+    "lodash.pluck": "^3.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pedesen",
+  "license": "MIT",
+  "repository" :
+    { "type" : "git",
+      "url" : "https://github.com/pedesen/bpmn-jsonator.git"
+    }
+}
