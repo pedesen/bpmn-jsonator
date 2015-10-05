@@ -13,12 +13,24 @@ var file = args[2];
 var elementName = args[3];
 
 jsonfile.readFile(file, function(err, obj) {
-  var elements = filter(obj.types, function(type) {
-    if (type.superClass) {
-      return type.superClass.indexOf(elementName) !== -1;
-    } else {
-      return false;
+
+  function getChildren(elementName) {
+    var elements = filter(obj.types, function(type) {
+      return type.superClass ? type.superClass.indexOf(elementName) !== -1 : false;
+    });
+
+    var children = pluck(elements, 'name');
+
+    if(children.length !== 0) {
+      console.log(elementName +": "+ children);
     }
-  });
-  console.log(pluck(elements, 'name'));
+
+    for (var i=0; i<elements.length; i++) {
+      getChildren(elements[i].name);
+    }
+
+    return pluck(elements, 'name');
+  }
+
+  getChildren(elementName);
 });
